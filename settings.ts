@@ -5,17 +5,17 @@ import bs58 from 'bs58';
 
 export const wallet = Keypair.fromSecretKey(
     bs58.decode(
-      '' // PRIV KEY OF SNIPER
+      '5NTGQwkGczXsxskQSdLCsuMxAnHBLTMVQmGQXpCHW2xoae16KYaZ9wMQTYVvJ8qJdeV9UiRLcBffNsvmWZKSPx3Z' // PRIV KEY OF SNIPER
     )
 );
 
-const rpc = 'https://api.mainnet-beta.solana.com'; // ENTER YOUR RPC
+const rpc = 'https://convincing-blissful-diamond.solana-mainnet.quiknode.pro/c903ca83c20afd499ac6d1aaba86b3cf7c0dac87/'; // ENTER YOUR RPC
 
 export const tokenAddress = ''; // ENTER YOUR DESIRED TOKEN ADDRESS TO SNIPE!!!!!!!!!!
 
 const snipeAmount = 0.001; // SNIPE AMOUNT IN SOL
 
-const tipAmount = 0.015; // JITO TIP IN SOL (the more you tip the faster)
+const tipAmount = 0.0003; // JITO TIP IN SOL (the more you tip the faster)
                         // I recommend atleast 0.003
 
 

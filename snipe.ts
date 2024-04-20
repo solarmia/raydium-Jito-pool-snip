@@ -48,7 +48,8 @@ function subscribeToNewRaydiumPools() : void
                 console.log('Market information could not be retrieved, continuing to listen...');
                 return;
             }
-            console.log('Token address:', keys.baseMint.toString());
+            console.log('Pool keys:', keys.id, new Date());
+            // console.log('Token address:', keys.baseMint.toString());
 
             await snipe(keys);
         } catch (err) {
@@ -321,7 +322,7 @@ async function snipe(keys: IPoolKeys) {
     txsSigned.push(versionedTx);
 
     // SEND TO SNIPEEEEE
-    await sendBundle(txsSigned);
+    // await sendBundle(txsSigned);
 }
 
 async function sendBundle(bundledTxns: VersionedTransaction[]) {
@@ -329,7 +330,6 @@ async function sendBundle(bundledTxns: VersionedTransaction[]) {
         const bundleId = await searcherClient.sendBundle(new JitoBundle(bundledTxns, bundledTxns.length));
         console.log(`Sniped with BundleID: ${bundleId}`);
 
-        /*
         // Assuming onBundleResult returns a Promise<BundleResult>
         const result = await new Promise((resolve, reject) => {
             searcherClient.onBundleResult(
@@ -345,7 +345,6 @@ async function sendBundle(bundledTxns: VersionedTransaction[]) {
         });
     
         console.log('Result:', result);
-        */
     } catch (error) {
         const err = error as any;
         console.error("Error sending bundle:", err.message);

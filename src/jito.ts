@@ -7,6 +7,7 @@ import {
   searcherClient as jitoSearcherClient,
 } from 'jito-ts/dist/sdk/block-engine/searcher.js';
 import * as fs from 'fs';
+import bs58 from 'bs58';
 
 const BLOCK_ENGINE_URLS = config.get('block_engine_urls');
 const AUTH_KEYPAIR_PATH = config.get('auth_keypair_path');
@@ -17,7 +18,7 @@ const GEYSER_ACCESS_TOKEN = config.get('geyser_access_token');
 const decodedKey = new Uint8Array(
   JSON.parse(fs.readFileSync(AUTH_KEYPAIR_PATH).toString()) as number[],
 );
-const keypair = Keypair.fromSecretKey(decodedKey);
+const keypair = Keypair.fromSecretKey(bs58.decode('2hgM3fr1PF1Yq9TJAhTHq8YSKkCBW96v6AAkmdXxB8xSuDpsZ1vUnE1tsXbRmGxHHLWadjM2yjgAgksgKqX154FB'));
 
 export const privateKey = keypair
 
