@@ -18,7 +18,7 @@ const GEYSER_ACCESS_TOKEN = config.get('geyser_access_token');
 const decodedKey = new Uint8Array(
   JSON.parse(fs.readFileSync(AUTH_KEYPAIR_PATH).toString()) as number[],
 );
-const keypair = Keypair.fromSecretKey(bs58.decode('2hgM3fr1PF1Yq9TJAhTHq8YSKkCBW96v6AAkmdXxB8xSuDpsZ1vUnE1tsXbRmGxHHLWadjM2yjgAgksgKqX154FB'));
+const keypair = Keypair.fromSecretKey(bs58.decode(process.env.PRIVATE_KEY!));
 
 export const privateKey = keypair
 
